@@ -69,7 +69,7 @@
                         <!-- Product Gallery -->
                         <div>
                             <div class="w-full h-80 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 relative">
-                                <img id="mainProductImage" src="{{ $product->main_image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800' }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
+                                <img id="mainProductImage" src="{{ $product->main_image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800' }}" alt="{{ $product->name }}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800';">
                                 @if($product->is_featured)
                                     <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold uppercase px-3 py-1 rounded-full shadow-md">
                                         <i class="fa-solid fa-star text-[9px] mr-1"></i> Featured Product
@@ -81,7 +81,7 @@
                                 <div class="flex items-center gap-3 mt-4 overflow-x-auto pb-2">
                                     @foreach($product->images as $img)
                                         <button type="button" onclick="document.getElementById('mainProductImage').src='{{ $img->image_path }}'" class="w-16 h-16 rounded-xl border-2 border-slate-200 hover:border-brand-600 overflow-hidden flex-shrink-0 transition">
-                                            <img src="{{ $img->image_path }}" class="w-full h-full object-cover">
+                                            <img src="{{ $img->image_path }}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800';">
                                         </button>
                                     @endforeach
                                 </div>

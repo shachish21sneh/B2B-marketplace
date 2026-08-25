@@ -16,7 +16,7 @@
 
         <div class="w-full sm:w-48 h-48 rounded-xl overflow-hidden bg-slate-100 relative flex-shrink-0">
             <a href="{{ route('products.show', $product->slug) }}">
-                <img src="{{ $product->main_image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600' }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <img src="{{ $product->main_image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600' }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600';">
             </a>
         </div>
 
@@ -102,7 +102,7 @@
             <!-- Image Area -->
             <div class="w-full h-48 rounded-t-2xl overflow-hidden bg-slate-100 relative">
                 <a href="{{ route('products.show', $product->slug) }}">
-                    <img src="{{ $product->main_image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600' }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <img src="{{ $product->main_image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600' }}" alt="{{ $product->name }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600';">
                 </a>
             </div>
 

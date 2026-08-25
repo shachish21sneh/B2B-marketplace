@@ -139,7 +139,7 @@
             @foreach($categories as $cat)
                 <a href="{{ route('category.show', $cat->slug) }}" class="bg-white rounded-2xl border border-slate-200 p-4 hover:border-brand-500 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center group">
                     <div class="w-20 h-20 rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden mb-3 group-hover:scale-105 transition duration-300">
-                        <img src="{{ $cat->image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=300' }}" alt="{{ $cat->name }}" class="w-full h-full object-cover">
+                        <img src="{{ $cat->image ?: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=300' }}" alt="{{ $cat->name }}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=300';">
                     </div>
                     <h3 class="text-xs font-bold text-slate-900 group-hover:text-brand-600 transition line-clamp-2 leading-tight">
                         {{ $cat->name }}
@@ -284,7 +284,7 @@
             @foreach($popularCities as $city)
                 <a href="{{ route('city.suppliers', $city->city) }}" class="bg-white rounded-2xl border border-slate-200 p-3 hover:border-brand-500 hover:shadow-lg transition flex items-center gap-3 group">
                     <div class="w-12 h-12 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200">
-                        <img src="{{ $city->image ?: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=200' }}" alt="{{ $city->city }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                        <img src="{{ $city->image ?: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=200' }}" alt="{{ $city->city }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=200';">
                     </div>
                     <div class="truncate">
                         <h4 class="text-xs font-bold text-slate-900 group-hover:text-brand-600 transition truncate">{{ $city->city }}</h4>
