@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="py-4 px-4">
                                     <strong class="text-slate-800 block">{{ $doc->document_name }}</strong>
-                                    <a href="{{ $doc->file_path }}" target="_blank" class="text-brand-600 font-bold hover:underline text-[10px] inline-flex items-center gap-1 mt-0.5">
+                                    <a href="{{ route('admin.verification.document', $doc->id) }}" target="_blank" class="text-brand-600 font-bold hover:underline text-[10px] inline-flex items-center gap-1 mt-0.5">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Attachment
                                     </a>
                                 </td>

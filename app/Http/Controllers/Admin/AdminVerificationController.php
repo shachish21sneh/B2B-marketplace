@@ -7,6 +7,8 @@ use App\Models\SupplierDocument;
 use App\Models\Supplier;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AdminVerificationController extends Controller
 {
@@ -22,6 +24,29 @@ class AdminVerificationController extends Controller
         $suppliers = Supplier::latest()->paginate(15, ['*'], 'suppliers_page');
 
         return view('admin.verification.index', compact('documents', 'suppliers'));
+    }
+
+    public function viewDocument($id)
+    {
+        $doc = SupplierDocument::with('supplier.user')->findOrFail($id);
+
+        if (Str::startsWith($doc->file_path, ['http://', 'https://'])) {
+            return redirect($doc->file_path);
+        }
+
+        $cleanPath = ltrim($doc->file_path, '/');
+        if (Str::startsWith($cleanPath, 'storage/')) {
+            $storageRelative = substr($cleanPath, 8);
+            if (Storage::disk('public')->exists($storageRelative)) {
+                return response()->file(Storage::disk('public')->path($storageRelative));
+            }
+        }
+
+        if (file_exists(public_path($cleanPath))) {
+            return response()->file(public_path($cleanPath));
+        }
+
+        return view('admin.verification.document_preview', compact('doc'));
     }
 
     public function approve(Request $request, $id)

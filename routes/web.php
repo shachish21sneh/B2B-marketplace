@@ -196,6 +196,7 @@ Route::middleware(['auth', 'role:admin,staff'])->prefix('admin')->as('admin.')->
 
     // Verification
     Route::get('/verification', [AdminVerificationController::class, 'index'])->name('verification');
+    Route::get('/verification/documents/{id}', [AdminVerificationController::class, 'viewDocument'])->name('verification.document');
     Route::post('/verification/{id}/approve', [AdminVerificationController::class, 'approve'])->name('verification.approve');
     Route::post('/verification/{id}/reject', [AdminVerificationController::class, 'reject'])->name('verification.reject');
     Route::post('/verification/suppliers/{id}/level', [AdminVerificationController::class, 'updateLevel'])->name('verification.level');
