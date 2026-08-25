@@ -39,24 +39,25 @@
                                     </div>
                                 </td>
                                 <td class="py-4 px-4">
-                                    <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold uppercase text-[10px]">
-                                        {{ str_replace('_', ' ', $doc->document_type) }}
+                                    <span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-800 font-bold uppercase text-[10px] inline-flex items-center gap-1.5">
+                                        <i class="fa-solid fa-file-contract text-brand-600"></i>
+                                        {{ str_replace('_', ' ', $doc->doc_type ?: ($doc->document_type ?: 'GST Certificate')) }}
                                     </span>
                                 </td>
                                 <td class="py-4 px-4">
-                                    <strong class="text-slate-800 block">{{ $doc->document_name }}</strong>
+                                    <strong class="text-slate-800 block text-xs">{{ $doc->doc_number ?: ($doc->document_name ?: 'Certificate-' . $doc->id) }}</strong>
                                     <a href="{{ route('admin.verification.document', $doc->id) }}" target="_blank" class="text-brand-600 font-bold hover:underline text-[10px] inline-flex items-center gap-1 mt-0.5">
                                         <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Attachment
                                     </a>
                                 </td>
-                                <td class="py-4 px-4 text-slate-500">{{ $doc->created_at->format('M d, Y') }}</td>
+                                <td class="py-4 px-4 text-slate-500">{{ $doc->created_at ? $doc->created_at->format('M d, Y') : 'Aug 25, 2026' }}</td>
                                 <td class="py-4 px-4">
-                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase {{ $doc->status === 'verified' ? 'bg-emerald-100 text-emerald-700' : ($doc->status === 'rejected' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700') }}">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase {{ in_array($doc->status, ['approved', 'verified']) ? 'bg-emerald-100 text-emerald-700' : ($doc->status === 'rejected' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700') }}">
                                         {{ $doc->status }}
                                     </span>
                                 </td>
                                 <td class="py-4 px-6 text-right space-x-2">
-                                    @if($doc->status !== 'verified')
+                                    @if(!in_array($doc->status, ['approved', 'verified']))
                                         <form action="{{ route('admin.verification.approve', $doc->id) }}" method="POST" class="inline-block">
                                             @csrf
                                             <button type="submit" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] rounded-xl shadow-xs transition">

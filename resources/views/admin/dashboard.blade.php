@@ -120,7 +120,7 @@
                                     <td class="py-3 font-bold text-slate-900 truncate max-w-[140px]">
                                         {{ $doc->supplier->company_name ?? 'Supplier' }}
                                     </td>
-                                    <td class="py-3 uppercase text-[10px] font-bold text-brand-600">{{ str_replace('_', ' ', $doc->document_type) }}</td>
+                                    <td class="py-3 uppercase text-[10px] font-bold text-brand-600">{{ str_replace('_', ' ', $doc->doc_type ?: ($doc->document_type ?: 'GST Certificate')) }}</td>
                                     <td class="py-3 text-slate-400">{{ $doc->created_at->diffForHumans() }}</td>
                                     <td class="py-3 text-right">
                                         <a href="{{ route('admin.verification') }}" class="px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 font-bold text-[10px] shadow-xs">Review</a>

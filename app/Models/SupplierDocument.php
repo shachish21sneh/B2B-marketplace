@@ -30,4 +30,14 @@ class SupplierDocument extends Model
     {
         return $this->belongsTo(Supplier::class);
     }
+
+    public function getDocumentTypeAttribute()
+    {
+        return $this->doc_type;
+    }
+
+    public function getDocumentNameAttribute()
+    {
+        return $this->doc_number ?: (str_replace('_', ' ', $this->doc_type ?: 'GST Certificate') . ' Document');
+    }
 }
