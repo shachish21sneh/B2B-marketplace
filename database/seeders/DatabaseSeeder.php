@@ -117,8 +117,8 @@ class DatabaseSeeder extends Seeder
 
         // 3. Admin & Staff Users
         $adminUser = User::create([
-            'name' => 'NexTrade Administrator',
-            'email' => 'admin@nextrade.com',
+            'name' => 'Ozura Administrator',
+            'email' => 'admin@ozura.com',
             'mobile' => '+91 98765 43210',
             'role' => 'admin',
             'status' => 'active',
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
 
         $staffUser = User::create([
             'name' => 'Pooja Verma (Moderator)',
-            'email' => 'staff@nextrade.com',
+            'email' => 'staff@ozura.com',
             'mobile' => '+91 98765 43211',
             'role' => 'staff',
             'status' => 'active',
@@ -141,7 +141,7 @@ class DatabaseSeeder extends Seeder
         // 4. Buyer Users & Profiles
         $buyer1User = User::create([
             'name' => 'Rajesh Kumar',
-            'email' => 'buyer@nextrade.com',
+            'email' => 'buyer@ozura.com',
             'mobile' => '+91 98201 12345',
             'role' => 'buyer',
             'status' => 'active',
@@ -164,7 +164,7 @@ class DatabaseSeeder extends Seeder
 
         $buyer2User = User::create([
             'name' => 'Ananya Sharma',
-            'email' => 'buyer2@nextrade.com',
+            'email' => 'buyer2@ozura.com',
             'mobile' => '+91 98111 23456',
             'role' => 'buyer',
             'status' => 'active',
@@ -187,7 +187,7 @@ class DatabaseSeeder extends Seeder
 
         $buyer3User = User::create([
             'name' => 'Vikram Patel',
-            'email' => 'buyer3@nextrade.com',
+            'email' => 'buyer3@ozura.com',
             'mobile' => '+91 98250 98765',
             'role' => 'buyer',
             'status' => 'active',
@@ -380,7 +380,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user' => [
                     'name' => 'Arunachalam Murthy',
-                    'email' => 'supplier@nextrade.com',
+                    'email' => 'supplier@ozura.com',
                     'mobile' => '+91 94432 10987',
                 ],
                 'supplier' => [
@@ -413,7 +413,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user' => [
                     'name' => 'Sunil Joshi',
-                    'email' => 'supplier2@nextrade.com',
+                    'email' => 'supplier2@ozura.com',
                     'mobile' => '+91 98450 76543',
                 ],
                 'supplier' => [
@@ -446,7 +446,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user' => [
                     'name' => 'Hiren Shah',
-                    'email' => 'supplier3@nextrade.com',
+                    'email' => 'supplier3@ozura.com',
                     'mobile' => '+91 98980 43210',
                 ],
                 'supplier' => [
@@ -479,7 +479,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user' => [
                     'name' => 'Dr. K. S. Reddy',
-                    'email' => 'supplier4@nextrade.com',
+                    'email' => 'supplier4@ozura.com',
                     'mobile' => '+91 99490 87654',
                 ],
                 'supplier' => [
@@ -512,7 +512,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user' => [
                     'name' => 'Mahesh Agarwal',
-                    'email' => 'supplier5@nextrade.com',
+                    'email' => 'supplier5@ozura.com',
                     'mobile' => '+91 98220 54321',
                 ],
                 'supplier' => [
@@ -545,7 +545,7 @@ class DatabaseSeeder extends Seeder
             [
                 'user' => [
                     'name' => 'Paresh Mehta',
-                    'email' => 'supplier6@nextrade.com',
+                    'email' => 'supplier6@ozura.com',
                     'mobile' => '+91 98241 65432',
                 ],
                 'supplier' => [
@@ -1098,7 +1098,7 @@ class DatabaseSeeder extends Seeder
                 'supplier_id' => $firstProduct->supplier_id,
                 'buyer_id' => $buyer1->id,
                 'buyer_name' => 'Rajesh Kumar',
-                'buyer_email' => 'buyer@nextrade.com',
+                'buyer_email' => 'buyer@ozura.com',
                 'buyer_phone' => '+91 98201 12345',
                 'quantity' => 2,
                 'expected_price' => 720000.00,

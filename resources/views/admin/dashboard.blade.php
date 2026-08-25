@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Super Admin Control Panel - NexTrade')
+@section('title', 'Super Admin Control Panel - Ozura')
 @section('page_title', 'Super Admin Control Panel')
 @section('page_subtitle', 'Platform oversight, verification approvals, revenue metrics and moderation.')
 

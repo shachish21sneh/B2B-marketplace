@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Sign In to Your Account - NexTrade B2B')
+@section('title', 'Sign In to Your Account - Ozura B2B')
 
 @section('content')
 
@@ -11,7 +11,7 @@
                 <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center mx-auto text-xl font-bold shadow-lg shadow-brand-500/25">
                     <i class="fa-solid fa-cubes"></i>
                 </div>
-                <h1 class="text-2xl font-extrabold font-heading text-slate-900">Sign in to NexTrade</h1>
+                <h1 class="text-2xl font-extrabold font-heading text-slate-900">Sign in to Ozura</h1>
                 <p class="text-xs text-slate-500">Access your Buyer or Supplier Dashboard</p>
             </div>
 
@@ -21,13 +21,13 @@
                     <i class="fa-solid fa-key text-amber-600"></i> Instant Demo Login (Click to Autofill):
                 </p>
                 <div class="grid grid-cols-3 gap-2">
-                    <button type="button" onclick="fillLogin('admin@nextrade.com', 'password')" class="p-2 rounded-xl bg-white border border-amber-200 hover:border-amber-500 text-amber-950 font-bold text-center shadow-xs transition">
+                    <button type="button" onclick="fillLogin('admin@ozura.com', 'password')" class="p-2 rounded-xl bg-white border border-amber-200 hover:border-amber-500 text-amber-950 font-bold text-center shadow-xs transition">
                         Admin
                     </button>
-                    <button type="button" onclick="fillLogin('supplier@nextrade.com', 'password')" class="p-2 rounded-xl bg-white border border-amber-200 hover:border-amber-500 text-amber-950 font-bold text-center shadow-xs transition">
+                    <button type="button" onclick="fillLogin('supplier@ozura.com', 'password')" class="p-2 rounded-xl bg-white border border-amber-200 hover:border-amber-500 text-amber-950 font-bold text-center shadow-xs transition">
                         Supplier
                     </button>
-                    <button type="button" onclick="fillLogin('buyer@nextrade.com', 'password')" class="p-2 rounded-xl bg-white border border-amber-200 hover:border-amber-500 text-amber-950 font-bold text-center shadow-xs transition">
+                    <button type="button" onclick="fillLogin('buyer@ozura.com', 'password')" class="p-2 rounded-xl bg-white border border-amber-200 hover:border-amber-500 text-amber-950 font-bold text-center shadow-xs transition">
                         Buyer
                     </button>
                 </div>
@@ -40,7 +40,7 @@
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
-                        <input type="email" name="email" id="loginEmail" value="{{ old('email', 'supplier@nextrade.com') }}" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
+                        <input type="email" name="email" id="loginEmail" value="{{ old('email', 'supplier@ozura.com') }}" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs sm:text-sm focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
                         @error('email') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                     </div>
 

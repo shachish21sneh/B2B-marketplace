@@ -19,12 +19,12 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Platform Name *</label>
-                        <input type="text" name="app_name" value="NexTrade B2B Marketplace" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
+                        <input type="text" name="app_name" value="Ozura B2B Marketplace" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">Support Email *</label>
-                        <input type="email" name="support_email" value="support@nextrade.com" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
+                        <input type="email" name="support_email" value="support@ozura.com" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
                     </div>
 
                     <div>
@@ -39,7 +39,7 @@
 
                     <div class="sm:col-span-2">
                         <label class="block text-xs font-bold text-slate-700 mb-1">Default SEO Meta Title</label>
-                        <input type="text" name="meta_title" value="NexTrade - India's Leading B2B Marketplace & Manufacturer Portal" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
+                        <input type="text" name="meta_title" value="Ozura - India's Leading B2B Marketplace & Manufacturer Portal" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-xs focus:ring-2 focus:ring-brand-500 focus:bg-white focus:outline-none">
                     </div>
 
                     <div class="sm:col-span-2">

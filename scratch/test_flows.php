@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 echo "========================================================\n";
-echo "       NEXTRADE B2B PLATFORM INTEGRATION TEST SUITE     \n";
+echo "       OZURA B2B PLATFORM INTEGRATION TEST SUITE     \n";
 echo "========================================================\n\n";
 
 $testsPassed = 0;
@@ -69,7 +69,7 @@ runTest("Homepage View Rendering", function() {
         'totalBuyers' => \App\Models\Buyer::count(),
         'statsRequirements' => Requirement::count(),
     ])->render();
-    return strlen($view) > 1000 && str_contains($view, 'NexTrade');
+    return strlen($view) > 1000 && str_contains($view, 'Ozura');
 });
 
 // Test 3: Product Search & Catalog View
@@ -113,7 +113,7 @@ runTest("Supplier Storefront View Rendering", function() {
 
 // Test 6: Buyer Dashboard & Side-by-Side Comparison
 runTest("Buyer Side-by-Side Quote Comparison View", function() {
-    $buyerUser = User::where('email', 'buyer@nextrade.com')->first();
+    $buyerUser = User::where('email', 'buyer@ozura.com')->first();
     Auth::login($buyerUser);
     
     $req = Requirement::with('quotes.supplier')->first();
@@ -131,9 +131,9 @@ runTest("Buyer Side-by-Side Quote Comparison View", function() {
 
 // Test 7: WhatsApp-style Real-time Chat View for Buyer
 runTest("Buyer Real-time Chat Interface View", function() {
-    $buyerUser = User::where('email', 'buyer@nextrade.com')->first();
+    $buyerUser = User::where('email', 'buyer@ozura.com')->first();
     Auth::login($buyerUser);
-    $supplierUser = User::where('email', 'supplier@nextrade.com')->first();
+    $supplierUser = User::where('email', 'supplier@ozura.com')->first();
     
     $contacts = collect([$supplierUser]);
     $messages = Message::where(function($q) use ($buyerUser, $supplierUser) {
@@ -156,7 +156,7 @@ runTest("Buyer Real-time Chat Interface View", function() {
 
 // Test 8: Supplier Dashboard & Lead Marketplace
 runTest("Supplier Dashboard View", function() {
-    $supplierUser = User::where('email', 'supplier@nextrade.com')->first();
+    $supplierUser = User::where('email', 'supplier@ozura.com')->first();
     Auth::login($supplierUser);
     
     $supplier = $supplierUser->supplier;
@@ -187,7 +187,7 @@ runTest("Supplier Dashboard View", function() {
 
 // Test 9: Supplier Subscription & Monetization Plans
 runTest("Supplier Subscription Tier View", function() {
-    $supplierUser = User::where('email', 'supplier@nextrade.com')->first();
+    $supplierUser = User::where('email', 'supplier@ozura.com')->first();
     Auth::login($supplierUser);
     
     $plans = SubscriptionPlan::all();
@@ -206,7 +206,7 @@ runTest("Supplier Subscription Tier View", function() {
 
 // Test 10: Super Admin Control Panel & KYC Verification Queue
 runTest("Admin Dashboard & KYC Queue View", function() {
-    $adminUser = User::where('email', 'admin@nextrade.com')->first();
+    $adminUser = User::where('email', 'admin@ozura.com')->first();
     Auth::login($adminUser);
     
     $stats = [

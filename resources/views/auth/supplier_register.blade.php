@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Supplier Onboarding - Sell Wholesale on NexTrade')
+@section('title', 'Supplier Onboarding - Sell Wholesale on Ozura')
 
 @section('content')
 

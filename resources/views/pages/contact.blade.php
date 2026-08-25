@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Support & Corporate Inquiries - NexTrade')
+@section('title', 'Contact Support & Corporate Inquiries - Ozura')
 
 @section('content')
 
     <div class="bg-slate-900 text-white py-12">
         <div class="max-w-4xl mx-auto px-4 text-center space-y-2">
-            <h1 class="text-3xl font-extrabold font-heading">Get in Touch with NexTrade</h1>
+            <h1 class="text-3xl font-extrabold font-heading">Get in Touch with Ozura</h1>
             <p class="text-xs sm:text-sm text-slate-300">Our enterprise customer success and supplier onboarding teams are here 24/7.</p>
         </div>
     </div>
@@ -22,7 +22,7 @@
                         <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-location-dot"></i></div>
                         <div>
                             <strong class="text-slate-900 block">Corporate Office</strong>
-                            <p class="text-slate-500">NexTrade Tower, Sector 62, Electronic City, Noida, Uttar Pradesh 201301, India</p>
+                            <p class="text-slate-500">Ozura Tower, Sector 62, Electronic City, Noida, Uttar Pradesh 201301, India</p>
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                         <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-envelope"></i></div>
                         <div>
                             <strong class="text-slate-900 block">Email Support</strong>
-                            <p class="text-brand-600">support@nextrade.com • sales@nextrade.com</p>
+                            <p class="text-brand-600">support@ozura.com • sales@ozura.com</p>
                         </div>
                     </div>
 

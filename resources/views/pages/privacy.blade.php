@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy - NexTrade B2B')
+@section('title', 'Privacy Policy - Ozura B2B')
 
 @section('content')
 

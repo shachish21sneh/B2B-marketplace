@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $requirement->title . ' - Buy Requirement | NexTrade')
+@section('title', $requirement->title . ' - Buy Requirement | Ozura')
 
 @section('content')
 

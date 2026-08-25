@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Supplier Messages & Live Chat - NexTrade')
+@section('title', 'Supplier Messages & Live Chat - Ozura')
 @section('page_title', 'Buyer Messages & Live Chat')
 @section('page_subtitle', 'Negotiate with buyers, clarify specifications and close wholesale orders.')
 

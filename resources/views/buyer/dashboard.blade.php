@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Buyer Dashboard - NexTrade')
+@section('title', 'Buyer Dashboard - Ozura')
 @section('page_title', 'Buyer Command Center')
 @section('page_subtitle', 'Manage your sourcing RFQs, compare supplier bids, and track inquiries.')
 

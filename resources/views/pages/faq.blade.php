@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Frequently Asked Questions (FAQ) - NexTrade')
+@section('title', 'Frequently Asked Questions (FAQ) - Ozura')
 
 @section('content')
 
@@ -21,14 +21,14 @@
         </div>
 
         <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-2">
-            <h3 class="text-sm font-bold text-slate-900 font-heading">2. Is it free for buyers to use NexTrade?</h3>
+            <h3 class="text-sm font-bold text-slate-900 font-heading">2. Is it free for buyers to use Ozura?</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
                 Yes! Posting buy requirements, browsing wholesale catalogs, receiving quotations, and chatting with manufacturers is 100% free for all buyers.
             </p>
         </div>
 
         <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-2">
-            <h3 class="text-sm font-bold text-slate-900 font-heading">3. How are suppliers verified on NexTrade?</h3>
+            <h3 class="text-sm font-bold text-slate-900 font-heading">3. How are suppliers verified on Ozura?</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
                 Suppliers undergo multi-tier authentication: GSTIN tax validation, PAN card verification, factory address checks, and ISO/MSME certificate audits. Verified suppliers receive specialized trust badges (GST, Business, KYC, Premium).
             </p>

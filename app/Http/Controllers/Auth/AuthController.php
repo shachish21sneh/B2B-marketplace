@@ -95,7 +95,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('buyer.dashboard')->with('success', 'Welcome to NexTrade! Your Buyer account has been registered successfully.');
+        return redirect()->route('buyer.dashboard')->with('success', 'Welcome to Ozura! Your Buyer account has been registered successfully.');
     }
 
     public function showSupplierRegister(Request $request)

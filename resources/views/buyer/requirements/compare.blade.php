@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Side-by-Side Quote Comparison - NexTrade')
+@section('title', 'Side-by-Side Quote Comparison - Ozura')
 @section('page_title', 'Side-by-Side Quotation Comparison')
 @section('page_subtitle', 'Evaluate supplier bids, delivery lead times, MOQs and verification badges.')
 

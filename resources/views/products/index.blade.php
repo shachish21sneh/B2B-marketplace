@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', ($currentCategory ? $currentCategory->name . ' - ' : '') . 'Search Wholesale Products & Machinery - NexTrade B2B')
+@section('title', ($currentCategory ? $currentCategory->name . ' - ' : '') . 'Search Wholesale Products & Machinery - Ozura B2B')
 @section('meta_description', 'Browse and source industrial products, machinery, electronics, construction materials and wholesale goods directly from verified manufacturers.')
 
 @section('content')

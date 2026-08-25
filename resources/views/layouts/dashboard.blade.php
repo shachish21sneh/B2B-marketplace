@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Dashboard - NexTrade B2B')</title>
+    <title>@yield('title', 'Dashboard - Ozura B2B')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Google Fonts & FontAwesome -->
@@ -56,7 +56,7 @@
                         <i class="fa-solid fa-cubes text-sm"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-bold font-heading text-white">Nex<span class="text-brand-400">Trade</span></span>
+                        <span class="text-xl font-bold font-heading text-white">Oz<span class="text-brand-400">ura</span></span>
                         <span class="block text-[9px] uppercase font-bold tracking-widest text-slate-400">
                             @if(request()->is('admin*')) Admin Console
                             @elseif(request()->is('supplier*')) Supplier Hub

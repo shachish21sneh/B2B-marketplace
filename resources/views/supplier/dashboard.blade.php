@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Supplier Command Center - NexTrade')
+@section('title', 'Supplier Command Center - Ozura')
 @section('page_title', 'Supplier Command Center')
 @section('page_subtitle', 'Real-time sales leads, buyer inquiries, catalog analytics and quotation status.')
 

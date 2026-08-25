@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Terms of Service - NexTrade B2B')
+@section('title', 'Terms of Service - Ozura B2B')
 
 @section('content')
 
@@ -10,7 +10,7 @@
             <p class="text-slate-400">Last updated: August 2026</p>
 
             <h2 class="text-sm font-bold text-slate-900 mt-4">1. Acceptance of Terms</h2>
-            <p>By accessing or using the NexTrade platform, buyers and suppliers agree to be bound by these Terms of Service and all applicable industrial trading regulations.</p>
+            <p>By accessing or using the Ozura platform, buyers and suppliers agree to be bound by these Terms of Service and all applicable industrial trading regulations.</p>
 
             <h2 class="text-sm font-bold text-slate-900 mt-4">2. Supplier Verification & KYC Representation</h2>
             <p>Suppliers warrant that all provided tax identifiers (GSTIN, PAN), business addresses, certificates and product specifications are authentic and legally valid.</p>

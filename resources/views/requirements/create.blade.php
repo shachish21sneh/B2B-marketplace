@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Post Buy Requirement (RFQ) - Get Free Competitive Quotes | NexTrade')
+@section('title', 'Post Buy Requirement (RFQ) - Get Free Competitive Quotes | Ozura')
 @section('meta_description', 'Post your product or raw material buying requirement and get fast wholesale quotations from verified manufacturers across India.')
 
 @section('content')
@@ -155,7 +155,7 @@
                         <span>Submit Buy Requirement & Notify Suppliers</span>
                     </button>
                     <p class="text-center text-[11px] text-slate-400 mt-2">
-                        By submitting, you agree to receive quotes and messages from verified NexTrade suppliers.
+                        By submitting, you agree to receive quotes and messages from verified Ozura suppliers.
                     </p>
                 </div>
 

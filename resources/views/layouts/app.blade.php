@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'NexTrade B2B - India\'s Leading B2B Marketplace & Wholesale Platform')</title>
+    <title>@yield('title', 'Ozura B2B - India\'s Leading B2B Marketplace & Wholesale Platform')</title>
     <meta name="description" content="@yield('meta_description', 'Connect with verified manufacturers, suppliers, exporters and wholesalers across India and global markets. Post buy requirements, get instant quotations and trade securely.')">
     <meta name="keywords" content="@yield('meta_keywords', 'B2B marketplace, manufacturers, suppliers, wholesale products, buy requirements, RFQ, exporters, industrial machinery, solar, textiles')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- OpenGraph & Twitter Cards -->
-    <meta property="og:title" content="@yield('title', 'NexTrade B2B Marketplace')">
+    <meta property="og:title" content="@yield('title', 'Ozura B2B Marketplace')">
     <meta property="og:description" content="@yield('meta_description', 'Source directly from verified manufacturers and wholesale suppliers.')">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
@@ -117,7 +117,7 @@
                         <i class="fa-solid fa-cubes text-xl"></i>
                     </div>
                     <div>
-                        <span class="text-2xl font-bold font-heading tracking-tight text-slate-900">Nex<span class="text-brand-600">Trade</span></span>
+                        <span class="text-2xl font-bold font-heading tracking-tight text-slate-900">Oz<span class="text-brand-600">ura</span></span>
                         <span class="block text-[10px] uppercase font-bold tracking-widest text-slate-400 -mt-1">B2B Marketplace</span>
                     </div>
                 </a>
@@ -468,10 +468,10 @@
                         <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold">
                             <i class="fa-solid fa-cubes text-lg"></i>
                         </div>
-                        <span class="text-2xl font-bold font-heading text-white">Nex<span class="text-brand-400">Trade</span></span>
+                        <span class="text-2xl font-bold font-heading text-white">Oz<span class="text-brand-400">ura</span></span>
                     </div>
                     <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
-                        NexTrade is an enterprise B2B e-commerce marketplace platform connecting verified manufacturers, wholesalers, suppliers, and procurement buyers across India and worldwide.
+                        Ozura is an enterprise B2B e-commerce marketplace platform connecting verified manufacturers, wholesalers, suppliers, and procurement buyers across India and worldwide.
                     </p>
                     <div class="flex items-center gap-3 pt-2">
                         <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-emerald-400 font-semibold">
@@ -514,7 +514,7 @@
                     <h4 class="text-sm font-bold text-white uppercase tracking-wider font-heading">Platform & Support</h4>
                     <ul class="space-y-2 text-xs">
                         <li><a href="{{ route('requirements.create') }}" class="hover:text-white transition">Post Buy Requirement</a></li>
-                        <li><a href="{{ route('supplier.register') }}" class="hover:text-white transition">Sell on NexTrade</a></li>
+                        <li><a href="{{ route('supplier.register') }}" class="hover:text-white transition">Sell on Ozura</a></li>
                         <li><a href="{{ route('pages.about') }}" class="hover:text-white transition">About Us</a></li>
                         <li><a href="{{ route('pages.contact') }}" class="hover:text-white transition">Contact Enterprise Support</a></li>
                         <li><a href="{{ route('pages.terms') }}" class="hover:text-white transition">Terms & Conditions</a></li>
@@ -525,7 +525,7 @@
             </div>
 
             <div class="border-t border-slate-900 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-                <p>&copy; {{ date('Y') }} NexTrade B2B Marketplace Platform. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} Ozura B2B Marketplace Platform. All rights reserved.</p>
                 <div class="flex items-center gap-6">
                     <a href="{{ route('seo.sitemap') }}" class="hover:text-slate-400">Sitemap</a>
                     <a href="{{ route('pages.privacy') }}" class="hover:text-slate-400">Privacy</a>

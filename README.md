@@ -1,4 +1,4 @@
-# NexTrade B2B — Enterprise Wholesale Marketplace & Manufacturer Portal
+# Ozura B2B — Enterprise Wholesale Marketplace & Manufacturer Portal
 
 [![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
@@ -6,7 +6,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
-**NexTrade B2B** is a full-featured, enterprise-grade B2B Marketplace and Manufacturer Sourcing Platform built with **PHP 8.3 / Laravel 11 and MySQL**, inspired by industry leaders like IndiaMART, Alibaba, and TradeIndia.
+**Ozura B2B** is a full-featured, enterprise-grade B2B Marketplace and Manufacturer Sourcing Platform built with **PHP 8.3 / Laravel 11 and MySQL**, inspired by industry leaders like IndiaMART, Alibaba, and TradeIndia.
 
 ---
 
@@ -52,9 +52,9 @@
 
 | Role | Email | Password | Dashboard URL |
 | :--- | :--- | :--- | :--- |
-| **Super Admin** | `admin@nextrade.com` | `password` | `http://localhost:8000/admin` |
-| **Verified Supplier** | `supplier@nextrade.com` | `password` | `http://localhost:8000/supplier/dashboard` |
-| **Corporate Buyer** | `buyer@nextrade.com` | `password` | `http://localhost:8000/buyer/dashboard` |
+| **Super Admin** | `admin@ozura.com` | `password` | `http://localhost:8000/admin` |
+| **Verified Supplier** | `supplier@ozura.com` | `password` | `http://localhost:8000/supplier/dashboard` |
+| **Corporate Buyer** | `buyer@ozura.com` | `password` | `http://localhost:8000/buyer/dashboard` |
 
 *(1-click demo login buttons are also provided directly on the `/login` page for fast testing).*
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Live Buy Requirements (RFQs) & Tender Leads - NexTrade')
+@section('title', 'Live Buy Requirements (RFQs) & Tender Leads - Ozura')
 @section('meta_description', 'Browse active wholesale buy requirements, supply tenders, and bulk RFQ leads from verified buyers across India.')
 
 @section('content')

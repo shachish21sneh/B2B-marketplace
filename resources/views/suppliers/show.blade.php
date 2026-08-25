@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $supplier->company_name . ' - Verified Supplier Storefront | NexTrade')
+@section('title', $supplier->company_name . ' - Verified Supplier Storefront | Ozura')
 @section('meta_description', Str::limit(strip_tags($supplier->description), 160))
 
 @section('content')
@@ -346,7 +346,7 @@
                             <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-globe"></i></div>
                             <div>
                                 <strong class="block text-slate-800">Official Website</strong>
-                                <a href="{{ $supplier->website ?: '#' }}" target="_blank" class="text-brand-600 hover:underline mt-0.5 block">{{ $supplier->website ?: 'https://www.nextrade.com/supplier/' . $supplier->slug }}</a>
+                                <a href="{{ $supplier->website ?: '#' }}" target="_blank" class="text-brand-600 hover:underline mt-0.5 block">{{ $supplier->website ?: 'https://www.ozura.com/supplier/' . $supplier->slug }}</a>
                             </div>
                         </div>
                     </div>

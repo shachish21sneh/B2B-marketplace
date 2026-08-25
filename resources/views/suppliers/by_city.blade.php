@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Verified Manufacturers & Suppliers in ' . $city . ' - NexTrade')
+@section('title', 'Verified Manufacturers & Suppliers in ' . $city . ' - Ozura')
 @section('meta_description', 'Find verified industrial suppliers, manufacturers, exporters and wholesale dealers located in ' . $city . '.')
 
 @section('content')

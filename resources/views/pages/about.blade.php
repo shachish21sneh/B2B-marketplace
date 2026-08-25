@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'About NexTrade - Leading B2B Marketplace Platform')
-@section('meta_description', 'Learn about NexTrade B2B, our mission to empower industrial manufacturers and wholesale buyers across India and globally.')
+@section('title', 'About Ozura - Leading B2B Marketplace Platform')
+@section('meta_description', 'Learn about Ozura B2B, our mission to empower industrial manufacturers and wholesale buyers across India and globally.')
 
 @section('content')
 
@@ -10,7 +10,7 @@
             <span class="px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider">Our Mission</span>
             <h1 class="text-3xl sm:text-5xl font-extrabold font-heading">Empowering Global B2B Commerce</h1>
             <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
-                NexTrade is the premier digital marketplace connecting authentic Indian manufacturers, industrial suppliers, and verified corporate buyers.
+                Ozura is the premier digital marketplace connecting authentic Indian manufacturers, industrial suppliers, and verified corporate buyers.
             </p>
         </div>
     </div>
@@ -48,7 +48,7 @@
         <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm space-y-4">
             <h2 class="text-2xl font-extrabold font-heading text-slate-900">Revolutionizing Procurement for SMEs & Enterprises</h2>
             <p class="text-sm text-slate-600 leading-relaxed">
-                Whether you're sourcing high-precision CNC machinery, solar equipment, construction raw materials, or textiles, NexTrade eliminates middle-tier brokers, providing transparent pricing directly from original factory floors.
+                Whether you're sourcing high-precision CNC machinery, solar equipment, construction raw materials, or textiles, Ozura eliminates middle-tier brokers, providing transparent pricing directly from original factory floors.
             </p>
         </div>
 

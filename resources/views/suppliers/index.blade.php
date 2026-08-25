@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Verified Manufacturers & B2B Suppliers Directory - NexTrade')
+@section('title', 'Verified Manufacturers & B2B Suppliers Directory - Ozura')
 @section('meta_description', 'Discover top verified manufacturers, exporters, wholesalers and distributors across India. Connect directly and request quotations.')
 
 @section('content')

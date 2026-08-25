@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Supplier Profile & KYC Verification - NexTrade')
+@section('title', 'Supplier Profile & KYC Verification - Ozura')
 @section('page_title', 'Storefront Profile & Trust Verification')
 @section('page_subtitle', 'Manage company details, branding, certifications, and upload KYC verification documents.')
 

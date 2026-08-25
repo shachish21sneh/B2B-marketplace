@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Buyer Profile Settings - NexTrade')
+@section('title', 'Buyer Profile Settings - Ozura')
 @section('page_title', 'Buyer Profile & Preferences')
 @section('page_subtitle', 'Manage company details and security settings.')
 

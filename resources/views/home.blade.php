@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'NexTrade B2B - India\'s Premier B2B Marketplace & Wholesale Trade Platform')
+@section('title', 'Ozura B2B - India\'s Premier B2B Marketplace & Wholesale Trade Platform')
 @section('meta_description', 'Connect with verified manufacturers, suppliers, exporters and wholesalers across India. Source industrial machinery, solar, steel, chemicals, packaging, textiles and post buy requirements.')
 
 @section('content')

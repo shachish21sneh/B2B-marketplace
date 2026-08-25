@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $product->name . ' - Buy Wholesale at Best Price | NexTrade')
+@section('title', $product->name . ' - Buy Wholesale at Best Price | Ozura')
 @section('meta_description', Str::limit(strip_tags($product->description), 160))
 @section('meta_keywords', $product->name . ', ' . ($product->brand ? $product->brand . ', ' : '') . ($product->category ? $product->category->name . ', ' : '') . 'wholesale supplier, manufacturer price')
 
@@ -17,7 +17,7 @@
   "sku": "{{ $product->sku ?: 'SKU-' . $product->id }}",
   "brand": {
     "@@type": "Brand",
-    "name": "{{ $product->brand ?: ($product->supplier ? $product->supplier->company_name : 'NexTrade') }}"
+    "name": "{{ $product->brand ?: ($product->supplier ? $product->supplier->company_name : 'Ozura') }}"
   },
   "offers": {
     "@@type": "Offer",
