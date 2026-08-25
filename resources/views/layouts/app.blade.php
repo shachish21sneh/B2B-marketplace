@@ -8,6 +8,11 @@
     <meta name="keywords" content="@yield('meta_keywords', 'B2B marketplace, manufacturers, suppliers, wholesale products, buy requirements, RFQ, exporters, industrial machinery, solar, textiles')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
     <!-- OpenGraph & Twitter Cards -->
     <meta property="og:title" content="@yield('title', 'Ozura B2B Marketplace')">
     <meta property="og:description" content="@yield('meta_description', 'Source directly from verified manufacturers and wholesale suppliers.')">

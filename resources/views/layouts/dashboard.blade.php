@@ -6,6 +6,11 @@
     <title>@yield('title', 'Dashboard - Ozura B2B')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -181,7 +186,7 @@
                     </a>
 
                     <a href="{{ route('admin.verification') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition {{ request()->routeIs('admin.verification*') ? 'bg-brand-600 text-white' : 'hover:bg-slate-900 hover:text-white' }}">
-                        <i class="fa-solid fa-shield-check w-5 text-center text-emerald-400"></i>
+                        <i class="fa-solid fa-id-card w-5 text-center text-emerald-400"></i>
                         <span>KYC & Verification</span>
                     </a>
 
