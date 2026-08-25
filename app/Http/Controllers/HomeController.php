@@ -48,9 +48,18 @@ class HomeController extends Controller
             ->take(6)
             ->get();
 
-        // 5. Popular City Hubs
+        // 5. City Hubs (UP Industrial Hubs & Major Metros)
+        $upCities = Location::where('state', 'Uttar Pradesh')
+            ->orderBy('city')
+            ->get();
+
+        $metroCities = Location::where('state', '!=', 'Uttar Pradesh')
+            ->where('is_popular', true)
+            ->orderBy('city')
+            ->get();
+
         $popularCities = Location::where('is_popular', true)
-            ->take(12)
+            ->orderBy('city')
             ->get();
 
         // 6. Hero Banner Ads
@@ -73,6 +82,8 @@ class HomeController extends Controller
             'featuredSuppliers',
             'latestRequirements',
             'popularCities',
+            'upCities',
+            'metroCities',
             'heroBanners',
             'stats'
         ));

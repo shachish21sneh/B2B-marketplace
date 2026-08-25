@@ -273,27 +273,61 @@
 
     <!-- SECTION 5: POPULAR CITIES (REGIONAL DISCOVERY) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div class="flex items-center justify-between mb-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
-                <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Location Discovery</span>
-                <h2 class="text-2xl font-bold font-heading text-slate-900 mt-1">Find Suppliers by Industrial Cities</h2>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand-600 flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot"></i> Regional & District Hubs
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 mt-1">Find Suppliers by Industrial Cities</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">Connect with verified local manufacturers, bulk stockists, and fabricators across Uttar Pradesh & India.</p>
+            </div>
+
+            <!-- Regional Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs font-bold">
+                <button type="button" onclick="filterCityTab('all', this)" class="city-tab-btn px-4 py-2 rounded-xl bg-brand-600 text-white shadow-sm transition">
+                    All Hubs ({{ $popularCities->count() }})
+                </button>
+                <button type="button" onclick="filterCityTab('up', this)" class="city-tab-btn px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-building-flag text-brand-600"></i> Uttar Pradesh ({{ isset($upCities) ? $upCities->count() : $popularCities->where('state', 'Uttar Pradesh')->count() }})
+                </button>
+                <button type="button" onclick="filterCityTab('metro', this)" class="city-tab-btn px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                    Metro Cities ({{ isset($metroCities) ? $metroCities->count() : $popularCities->where('state', '!=', 'Uttar Pradesh')->count() }})
+                </button>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4" id="citiesGrid">
             @foreach($popularCities as $city)
-                <a href="{{ route('city.suppliers', $city->city) }}" class="bg-white rounded-2xl border border-slate-200 p-3 hover:border-brand-500 hover:shadow-lg transition flex items-center gap-3 group">
+                <a href="{{ route('city.suppliers', $city->city) }}" data-state="{{ $city->state === 'Uttar Pradesh' ? 'up' : 'metro' }}" class="city-card bg-white rounded-2xl border border-slate-200 p-3 hover:border-brand-500 hover:shadow-lg transition flex items-center gap-3 group">
                     <div class="w-12 h-12 rounded-xl bg-slate-100 overflow-hidden flex-shrink-0 border border-slate-200">
                         <img src="{{ $city->image ?: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=200' }}" alt="{{ $city->city }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=200';">
                     </div>
                     <div class="truncate">
                         <h4 class="text-xs font-bold text-slate-900 group-hover:text-brand-600 transition truncate">{{ $city->city }}</h4>
-                        <span class="text-[10px] text-slate-400">{{ $city->state }}</span>
+                        <span class="text-[10px] text-slate-400 block truncate">{{ $city->state }}</span>
                     </div>
                 </a>
             @endforeach
         </div>
     </section>
+
+    <script>
+        function filterCityTab(type, btn) {
+            document.querySelectorAll('.city-tab-btn').forEach(b => {
+                b.className = 'city-tab-btn px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5 text-xs font-bold';
+            });
+            btn.className = 'city-tab-btn px-4 py-2 rounded-xl bg-brand-600 text-white shadow-sm transition flex items-center gap-1.5 text-xs font-bold';
+
+            const cards = document.querySelectorAll('.city-card');
+            cards.forEach(card => {
+                if (type === 'all' || card.getAttribute('data-state') === type) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
 
     <!-- SECTION 6: HIGH IMPACT "POST BUY REQUIREMENT" BANNER -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
