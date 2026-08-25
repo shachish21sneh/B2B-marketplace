@@ -1,5 +1,8 @@
 <?php
 
+$code = <<<'PHP'
+<?php
+
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -2816,3 +2819,7 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 }
+PHP;
+
+file_put_contents('/Users/diwakarjha/Desktop/B2B-marketplace/database/seeders/DatabaseSeeder.php', $code);
+echo "DatabaseSeeder.php successfully updated!\n";
