@@ -21,14 +21,39 @@ use App\Models\Review;
 use App\Models\Location;
 use App\Models\Advertisement;
 use App\Models\Notification;
+use App\Models\SubscriptionPayment;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        Schema::disableForeignKeyConstraints();
+        Notification::truncate();
+        Advertisement::truncate();
+        Review::truncate();
+        Message::truncate();
+        Quote::truncate();
+        Inquiry::truncate();
+        Requirement::truncate();
+        Service::truncate();
+        ProductImage::truncate();
+        Product::truncate();
+        Subcategory::truncate();
+        Category::truncate();
+        Location::truncate();
+        SubscriptionPayment::truncate();
+        Subscription::truncate();
+        SubscriptionPlan::truncate();
+        SupplierDocument::truncate();
+        Supplier::truncate();
+        Buyer::truncate();
+        User::truncate();
+        Schema::enableForeignKeyConstraints();
+
         // 1. Subscription Plans
         $freePlan = SubscriptionPlan::create([
             'name' => 'Free Starter',
