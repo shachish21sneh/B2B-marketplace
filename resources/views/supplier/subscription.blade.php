@@ -22,10 +22,10 @@
                 </p>
             </div>
 
-            @if($currentSubscription && $currentSubscription->expires_at)
+            @if(isset($currentSubscription) && $currentSubscription && ($currentSubscription->expires_at ?? $currentSubscription->ends_at))
                 <div class="text-right">
                     <span class="text-xs text-slate-400 block">Renews on</span>
-                    <strong class="text-sm font-bold text-white">{{ $currentSubscription->expires_at->format('d M, Y') }}</strong>
+                    <strong class="text-sm font-bold text-white">{{ ($currentSubscription->expires_at ?? $currentSubscription->ends_at)->format('d M, Y') }}</strong>
                 </div>
             @endif
         </div>

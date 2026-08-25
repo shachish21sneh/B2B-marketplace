@@ -57,7 +57,6 @@ Route::get('/category/{categorySlug}/{subcategorySlug}', [ProductController::cla
 // Suppliers
 Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
 Route::get('/suppliers/{slug}', [SupplierController::class, 'show'])->name('suppliers.show');
-Route::get('/supplier/{slug}', [SupplierController::class, 'show']);
 Route::post('/suppliers/{slug}/review', [SupplierController::class, 'storeReview'])->name('suppliers.review');
 Route::get('/city/{city}/suppliers', [SupplierController::class, 'byCity'])->name('city.suppliers');
 
@@ -170,6 +169,7 @@ Route::middleware(['auth', 'role:supplier,admin'])->prefix('supplier')->as('supp
     Route::get('/profile', [SupplierProfileController::class, 'index'])->name('profile');
     Route::post('/profile', [SupplierProfileController::class, 'update'])->name('profile.update');
     Route::post('/profile/document', [SupplierProfileController::class, 'uploadDocument'])->name('profile.document');
+    Route::post('/documents/upload', [SupplierProfileController::class, 'uploadDocument'])->name('documents.upload');
 
     // Reviews
     Route::get('/reviews', [SupplierReviewController::class, 'index'])->name('reviews');

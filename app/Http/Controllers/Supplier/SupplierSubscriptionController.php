@@ -17,9 +17,10 @@ class SupplierSubscriptionController extends Controller
         $supplier = Auth::user()->supplier;
         $plans = SubscriptionPlan::where('is_active', true)->get();
         $currentPlan = $supplier->subscriptionPlan;
+        $currentSubscription = Subscription::where('supplier_id', $supplier->id)->where('status', 'active')->latest()->first();
         $payments = SubscriptionPayment::where('supplier_id', $supplier->id)->latest()->take(10)->get();
 
-        return view('supplier.subscription', compact('plans', 'supplier', 'currentPlan', 'payments'));
+        return view('supplier.subscription', compact('plans', 'supplier', 'currentPlan', 'currentSubscription', 'payments'));
     }
 
     public function upgrade(Request $request)
