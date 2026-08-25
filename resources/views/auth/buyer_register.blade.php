@@ -17,6 +17,19 @@
 
             <div class="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-xl">
                 
+                @if ($errors->any())
+                    <div class="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs">
+                        <div class="font-bold flex items-center gap-2 mb-2 text-sm text-rose-900">
+                            <i class="fa-solid fa-circle-exclamation text-rose-600"></i> Registration Errors:
+                        </div>
+                        <ul class="list-disc list-inside space-y-1">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form action="{{ route('buyer.register') }}" method="POST" class="space-y-4">
                     @csrf
 

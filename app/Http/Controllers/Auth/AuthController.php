@@ -65,7 +65,7 @@ class AuthController extends Controller
             'mobile' => 'required|string|unique:users,mobile|max:20',
             'password' => 'required|string|min:6|confirmed',
             'company_name' => 'required|string|max:255',
-            'business_type' => 'required|string|max:100',
+            'business_type' => 'nullable|string|max:100',
             'city' => 'required|string|max:100',
             'state' => 'nullable|string|max:100',
             'country' => 'nullable|string|max:100',
@@ -86,11 +86,12 @@ class AuthController extends Controller
         Buyer::create([
             'user_id' => $user->id,
             'company_name' => $request->company_name,
-            'business_type' => $request->business_type,
+            'business_type' => $request->business_type ?: 'Corporate Buyer',
             'city' => $request->city,
-            'state' => $request->state ?: 'State',
+            'state' => $request->state ?: 'Maharashtra',
             'country' => $request->country ?: 'India',
-            'pincode' => $request->pincode,
+            'pincode' => $request->pincode ?: '400001',
+            'address' => $request->address ?: $request->city,
         ]);
 
         Auth::login($user);
@@ -118,7 +119,7 @@ class AuthController extends Controller
 
             // Step 2: Company Info
             'company_name' => 'required|string|max:255',
-            'business_type' => 'required|in:Manufacturer,Wholesaler,Distributor,Trader,Service Provider,Exporter',
+            'business_type' => 'nullable|string|max:100',
             'gst_number' => 'nullable|string|max:20',
             'pan_number' => 'nullable|string|max:20',
             'year_established' => 'nullable|integer|min:1900|max:' . date('Y'),
@@ -130,8 +131,8 @@ class AuthController extends Controller
             'state' => 'required|string|max:100',
             'pincode' => 'required|string|max:20',
 
-            // Step 4 & 5: Business & Docs
-            'description' => 'required|string|min:20|max:3000',
+            // Step 4: Business & Docs
+            'description' => 'nullable|string|max:3000',
             'website' => 'nullable|url|max:255',
             'subscription_plan_id' => 'nullable|exists:subscription_plans,id',
         ]);
@@ -147,7 +148,7 @@ class AuthController extends Controller
             'mobile_verified_at' => now(),
         ]);
 
-        $defaultPlan = SubscriptionPlan::where('slug', 'free-starter')->first();
+        $defaultPlan = SubscriptionPlan::where('slug', 'free-starter')->first() ?? SubscriptionPlan::first();
         $planId = $request->subscription_plan_id ?: ($defaultPlan ? $defaultPlan->id : null);
 
         $slug = Str::slug($request->company_name);
@@ -160,7 +161,7 @@ class AuthController extends Controller
             'subscription_plan_id' => $planId,
             'company_name' => $request->company_name,
             'slug' => $slug,
-            'business_type' => $request->business_type,
+            'business_type' => $request->business_type ?: 'Manufacturer',
             'year_established' => $request->year_established ?: date('Y'),
             'employees_count' => $request->employees_count ?: '1-10 People',
             'gst_number' => $request->gst_number,
@@ -170,7 +171,7 @@ class AuthController extends Controller
             'state' => $request->state,
             'country' => 'India',
             'pincode' => $request->pincode,
-            'description' => $request->description,
+            'description' => $request->description ?: 'Verified supplier and manufacturer offering high quality products and direct wholesale dispatch on Ozura B2B marketplace.',
             'website' => $request->website,
             'logo' => 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&auto=format&fit=crop&q=80',
             'banner' => 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200&auto=format&fit=crop&q=80',
@@ -178,6 +179,17 @@ class AuthController extends Controller
             'verification_level' => 'Mobile',
             'status' => 'active',
         ]);
+
+        if ($planId) {
+            \App\Models\Subscription::create([
+                'supplier_id' => $supplier->id,
+                'plan_id' => $planId,
+                'starts_at' => now(),
+                'ends_at' => now()->addYear(),
+                'status' => 'active',
+                'payment_id' => 'free_reg_' . Str::random(8),
+            ]);
+        }
 
         // If GST provided, create pending document
         if ($request->gst_number) {
