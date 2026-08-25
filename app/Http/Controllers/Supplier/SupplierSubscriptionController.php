@@ -14,7 +14,7 @@ class SupplierSubscriptionController extends Controller
 {
     public function index()
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $plans = SubscriptionPlan::where('is_active', true)->get();
         $currentPlan = $supplier->subscriptionPlan;
         $currentSubscription = Subscription::where('supplier_id', $supplier->id)->where('status', 'active')->latest()->first();
@@ -25,7 +25,7 @@ class SupplierSubscriptionController extends Controller
 
     public function upgrade(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $plan = SubscriptionPlan::findOrFail($request->plan_id);
 
         $paymentId = 'pay_razor_' . Str::random(12);

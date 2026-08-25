@@ -11,7 +11,7 @@ class BuyerInquiryController extends Controller
 {
     public function index()
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $inquiries = $buyer ? $buyer->inquiries()->with(['product', 'supplier.user'])->latest()->paginate(10) : collect();
 
         return view('buyer.inquiries.index', compact('inquiries'));
@@ -19,7 +19,7 @@ class BuyerInquiryController extends Controller
 
     public function show($id)
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $inquiry = Inquiry::where('id', $id)->where('buyer_id', $buyer->id)->with(['product', 'supplier.user'])->firstOrFail();
 
         return view('buyer.inquiries.show', compact('inquiry'));

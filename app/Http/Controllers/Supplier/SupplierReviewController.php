@@ -11,7 +11,7 @@ class SupplierReviewController extends Controller
 {
     public function index()
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $reviews = $supplier->allReviews()->with(['buyer.user', 'product'])->paginate(10);
 
         return view('supplier.reviews.index', compact('reviews', 'supplier'));
@@ -19,7 +19,7 @@ class SupplierReviewController extends Controller
 
     public function reply(Request $request, $id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $review = Review::where('id', $id)->where('supplier_id', $supplier->id)->firstOrFail();
 
         $request->validate([

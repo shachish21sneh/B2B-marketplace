@@ -14,7 +14,7 @@ class BuyerRequirementController extends Controller
 {
     public function index()
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $requirements = $buyer ? $buyer->requirements()->with('category')->withCount('quotes')->latest()->paginate(10) : collect();
 
         return view('buyer.requirements.index', compact('requirements'));
@@ -22,7 +22,7 @@ class BuyerRequirementController extends Controller
 
     public function show($id)
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $requirement = Requirement::where('id', $id)
             ->where('buyer_id', $buyer->id)
             ->with(['category', 'quotes.supplier.subscriptionPlan'])
@@ -33,7 +33,7 @@ class BuyerRequirementController extends Controller
 
     public function compareQuotes($id)
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $requirement = Requirement::where('id', $id)
             ->where('buyer_id', $buyer->id)
             ->with(['category', 'quotes.supplier.subscriptionPlan'])
@@ -46,7 +46,7 @@ class BuyerRequirementController extends Controller
 
     public function acceptQuote($quoteId)
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $quote = Quote::where('id', $quoteId)->where('buyer_id', $buyer->id)->firstOrFail();
 
         $quote->update(['status' => 'accepted']);
@@ -75,7 +75,7 @@ class BuyerRequirementController extends Controller
 
     public function rejectQuote(Request $request, $quoteId)
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $quote = Quote::where('id', $quoteId)->where('buyer_id', $buyer->id)->firstOrFail();
 
         $quote->update(['status' => 'rejected']);
@@ -93,7 +93,7 @@ class BuyerRequirementController extends Controller
 
     public function closeRequirement($id)
     {
-        $buyer = Auth::user()->buyer;
+        $buyer = Auth::user()->getOrCreateBuyer();
         $requirement = Requirement::where('id', $id)->where('buyer_id', $buyer->id)->firstOrFail();
 
         $requirement->update(['status' => 'closed']);

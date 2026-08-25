@@ -15,7 +15,7 @@ class SupplierRequirementController extends Controller
 {
     public function index(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $query = Requirement::where('status', 'open')->with(['buyer.user', 'category', 'quotes']);
 
         if ($request->filled('category')) {
@@ -41,7 +41,7 @@ class SupplierRequirementController extends Controller
 
     public function show($id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $requirement = Requirement::where('id', $id)->with(['buyer.user', 'category', 'quotes'])->firstOrFail();
         $existingQuote = Quote::where('requirement_id', $id)->where('supplier_id', $supplier->id)->first();
 
@@ -50,7 +50,7 @@ class SupplierRequirementController extends Controller
 
     public function submitQuote(Request $request, $id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $requirement = Requirement::where('id', $id)->where('status', 'open')->firstOrFail();
 
         $request->validate([

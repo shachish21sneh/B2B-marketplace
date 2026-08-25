@@ -11,7 +11,7 @@ class SupplierQuoteController extends Controller
 {
     public function index(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $query = $supplier->quotes()->with(['requirement.category', 'buyer.user']);
 
         if ($request->filled('status')) {

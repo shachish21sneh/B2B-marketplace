@@ -15,7 +15,7 @@ class SupplierMessageController extends Controller
     public function index(Request $request)
     {
         $currentUserId = Auth::id();
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
 
         $contactIds = Message::where('sender_id', $currentUserId)
             ->pluck('receiver_id')
@@ -88,10 +88,11 @@ class SupplierMessageController extends Controller
             'is_read' => false,
         ]);
 
+        $supplier = Auth::user()->getOrCreateSupplier();
         Notification::create([
             'user_id' => $request->receiver_id,
             'type' => 'message',
-            'title' => 'New Message from ' . Auth::user()->supplier->company_name,
+            'title' => 'New Message from ' . ($supplier->company_name ?? 'Supplier'),
             'message' => Str::limit($request->message, 80),
             'link' => '/buyer/messages?user=' . Auth::id(),
         ]);

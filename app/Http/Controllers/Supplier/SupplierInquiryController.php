@@ -13,7 +13,7 @@ class SupplierInquiryController extends Controller
 {
     public function index(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $query = $supplier->inquiries()->with(['product', 'buyer.user']);
 
         if ($request->filled('status')) {
@@ -27,7 +27,7 @@ class SupplierInquiryController extends Controller
 
     public function show($id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $inquiry = Inquiry::where('id', $id)->where('supplier_id', $supplier->id)->with(['product', 'buyer.user'])->firstOrFail();
 
         if ($inquiry->status === 'new') {
@@ -39,7 +39,7 @@ class SupplierInquiryController extends Controller
 
     public function reply(Request $request, $id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $inquiry = Inquiry::where('id', $id)->where('supplier_id', $supplier->id)->firstOrFail();
 
         $request->validate([

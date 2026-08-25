@@ -13,7 +13,7 @@ class SupplierProfileController extends Controller
 {
     public function index()
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $documents = $supplier->documents()->latest()->get();
         $locations = Location::where('is_popular', true)->get();
 
@@ -22,7 +22,7 @@ class SupplierProfileController extends Controller
 
     public function update(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
 
         $request->validate([
             'company_name' => 'required|string|max:255',
@@ -81,7 +81,7 @@ class SupplierProfileController extends Controller
 
     public function uploadDocument(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
 
         $request->validate([
             'doc_type' => 'required|in:GST_Certificate,PAN_Card,Business_License,ISO_Certificate,MSME_Udyam,Other',

@@ -16,11 +16,7 @@ class SupplierDashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $supplier = $user->supplier;
-
-        if (!$supplier) {
-            return redirect()->route('supplier.register');
-        }
+        $supplier = $user->getOrCreateSupplier();
 
         $totalInquiries = $supplier->inquiries()->count();
         $quotesSent = $supplier->quotes()->count();

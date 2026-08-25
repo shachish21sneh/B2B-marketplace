@@ -15,7 +15,7 @@ class SupplierProductController extends Controller
 {
     public function index(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $query = $supplier->products()->with(['category', 'subcategory']);
 
         if ($request->filled('q')) {
@@ -34,7 +34,7 @@ class SupplierProductController extends Controller
 
     public function create()
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $plan = $supplier->subscriptionPlan;
         $productCount = $supplier->products()->count();
 
@@ -50,7 +50,7 @@ class SupplierProductController extends Controller
 
     public function store(Request $request)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -130,7 +130,7 @@ class SupplierProductController extends Controller
 
     public function edit($id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $product = Product::where('id', $id)->where('supplier_id', $supplier->id)->firstOrFail();
         $categories = Category::where('is_active', true)->with('subcategories')->get();
 
@@ -139,7 +139,7 @@ class SupplierProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $product = Product::where('id', $id)->where('supplier_id', $supplier->id)->firstOrFail();
 
         $request->validate([
@@ -206,7 +206,7 @@ class SupplierProductController extends Controller
 
     public function toggleStatus($id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $product = Product::where('id', $id)->where('supplier_id', $supplier->id)->firstOrFail();
 
         $product->update(['is_active' => !$product->is_active]);
@@ -217,7 +217,7 @@ class SupplierProductController extends Controller
 
     public function destroy($id)
     {
-        $supplier = Auth::user()->supplier;
+        $supplier = Auth::user()->getOrCreateSupplier();
         $product = Product::where('id', $id)->where('supplier_id', $supplier->id)->firstOrFail();
 
         $product->delete();
