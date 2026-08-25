@@ -19,8 +19,9 @@ class AdminVerificationController extends Controller
         }
 
         $documents = $query->latest()->paginate(15)->withQueryString();
+        $suppliers = Supplier::latest()->paginate(15, ['*'], 'suppliers_page');
 
-        return view('admin.verification.index', compact('documents'));
+        return view('admin.verification.index', compact('documents', 'suppliers'));
     }
 
     public function approve(Request $request, $id)
@@ -75,5 +76,30 @@ class AdminVerificationController extends Controller
         ]);
 
         return back()->with('info', 'Document has been rejected with feedback sent to supplier.');
+    }
+
+    public function updateLevel(Request $request, $id)
+    {
+        $request->validate([
+            'verification_level' => 'required|in:Basic,GST,Business,KYC,Premium',
+        ]);
+
+        $supplier = Supplier::findOrFail($id);
+        $level = $request->verification_level;
+
+        $supplier->update([
+            'is_verified' => ($level !== 'Basic'),
+            'verification_level' => $level,
+        ]);
+
+        Notification::create([
+            'user_id' => $supplier->user_id,
+            'type' => 'verification_level_updated',
+            'title' => 'Trust Level Updated',
+            'message' => "Your supplier profile trust badge has been updated to {$level}.",
+            'link' => '/supplier/profile',
+        ]);
+
+        return back()->with('success', "{$supplier->company_name} trust level updated to {$level}.");
     }
 }

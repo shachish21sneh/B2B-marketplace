@@ -43,7 +43,7 @@
                                     <span class="text-[10px] text-slate-400">MOQ: {{ $prod->moq }}</span>
                                 </td>
                                 <td class="py-4 px-4">
-                                    <form action="{{ route('admin.products.feature', $prod->id) }}" method="POST">
+                                    <form action="{{ route('admin.products.featured', $prod->id) }}" method="POST">
                                         @csrf
                                         <button type="submit" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase {{ $prod->is_featured ? 'bg-amber-100 text-amber-800' : 'bg-slate-100 text-slate-500' }}">
                                             <i class="fa-solid fa-star text-[9px] mr-1"></i> {{ $prod->is_featured ? 'Featured' : 'Standard' }}

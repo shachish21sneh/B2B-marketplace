@@ -11,30 +11,40 @@ class AdminAdvertisementController extends Controller
 {
     public function index()
     {
-        $ads = Advertisement::with('supplier')->latest()->paginate(15);
+        $advertisements = Advertisement::with('supplier')->latest()->paginate(15);
+        $ads = $advertisements;
         $suppliers = Supplier::where('status', 'active')->get();
 
-        return view('admin.advertisements.index', compact('ads', 'suppliers'));
+        return view('admin.advertisements.index', compact('advertisements', 'ads', 'suppliers'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'placement' => 'required|in:hero_slider,category_top,search_sponsored,sidebar_banner,homepage_featured',
-            'image_path' => 'required|string|max:500',
+            'placement' => 'nullable|string|max:100',
+            'position' => 'nullable|string|max:100',
+            'image_path' => 'nullable|string|max:500',
+            'image' => 'nullable|string|max:500',
             'target_url' => 'nullable|string|max:500',
+            'link_url' => 'nullable|string|max:500',
             'supplier_id' => 'nullable|exists:suppliers,id',
         ]);
 
+        $placement = $request->placement ?: ($request->position === 'hero_banner' ? 'hero_slider' : ($request->position === 'sidebar' ? 'sidebar_banner' : ($request->position ?: 'hero_slider')));
+        $imagePath = $request->image_path ?: ($request->image ?: '');
+        $targetUrl = $request->target_url ?: $request->link_url;
+        $startsAt = $request->starts_at ?: ($request->start_date ?: now());
+        $endsAt = $request->ends_at ?: ($request->end_date ?: now()->addMonth());
+
         Advertisement::create([
             'title' => $request->title,
-            'placement' => $request->placement,
-            'image_path' => $request->image_path,
-            'target_url' => $request->target_url,
+            'placement' => $placement,
+            'image_path' => $imagePath,
+            'target_url' => $targetUrl,
             'supplier_id' => $request->supplier_id,
-            'starts_at' => now(),
-            'ends_at' => now()->addMonth(),
+            'starts_at' => $startsAt,
+            'ends_at' => $endsAt,
             'is_active' => true,
         ]);
 

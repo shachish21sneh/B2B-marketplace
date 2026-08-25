@@ -13,37 +13,37 @@
             
             <div class="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Users</span>
-                <h3 class="text-2xl font-extrabold font-heading text-slate-900 mt-1">{{ number_format($stats['total_users']) }}</h3>
-                <span class="text-[10px] text-slate-500 font-semibold">{{ $stats['total_buyers'] }} Buyers registered</span>
+                <h3 class="text-2xl font-extrabold font-heading text-slate-900 mt-1">{{ number_format($stats['total_users'] ?? 0) }}</h3>
+                <span class="text-[10px] text-slate-500 font-semibold">{{ $stats['total_buyers'] ?? 0 }} Buyers registered</span>
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Total Suppliers</span>
-                <h3 class="text-2xl font-extrabold font-heading text-brand-600 mt-1">{{ number_format($stats['total_suppliers']) }}</h3>
-                <span class="text-[10px] text-emerald-600 font-semibold">{{ $stats['verified_suppliers'] }} Verified Badged</span>
+                <h3 class="text-2xl font-extrabold font-heading text-brand-600 mt-1">{{ number_format($stats['total_suppliers'] ?? 0) }}</h3>
+                <span class="text-[10px] text-emerald-600 font-semibold">{{ $stats['verified_suppliers'] ?? 0 }} Verified Badges</span>
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Pending KYC Queue</span>
-                <h3 class="text-2xl font-extrabold font-heading text-amber-500 mt-1">{{ $stats['pending_kyc'] }}</h3>
+                <h3 class="text-2xl font-extrabold font-heading text-amber-500 mt-1">{{ $stats['pending_kyc'] ?? ($stats['pending_verifications'] ?? 0) }}</h3>
                 <a href="{{ route('admin.verification') }}" class="text-[10px] text-amber-600 font-bold hover:underline">Review Documents &rarr;</a>
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Catalog Products</span>
-                <h3 class="text-2xl font-extrabold font-heading text-slate-900 mt-1">{{ number_format($stats['total_products']) }}</h3>
+                <h3 class="text-2xl font-extrabold font-heading text-slate-900 mt-1">{{ number_format($stats['total_products'] ?? 0) }}</h3>
                 <a href="{{ route('admin.products') }}" class="text-[10px] text-brand-600 font-semibold hover:underline">Manage Catalog &rarr;</a>
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Active RFQs</span>
-                <h3 class="text-2xl font-extrabold font-heading text-indigo-600 mt-1">{{ number_format($stats['total_requirements']) }}</h3>
+                <h3 class="text-2xl font-extrabold font-heading text-indigo-600 mt-1">{{ number_format($stats['total_requirements'] ?? 0) }}</h3>
                 <span class="text-[10px] text-slate-400">Procurement Leads</span>
             </div>
 
             <div class="bg-white rounded-3xl border border-slate-200 p-5 shadow-sm">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Subscription Rev</span>
-                <h3 class="text-2xl font-extrabold font-heading text-emerald-600 mt-1">₹{{ number_format($stats['total_revenue']) }}</h3>
+                <h3 class="text-2xl font-extrabold font-heading text-emerald-600 mt-1">₹{{ number_format($stats['total_revenue'] ?? 0) }}</h3>
                 <span class="text-[10px] text-emerald-600 font-semibold">Tier Monetization</span>
             </div>
 
